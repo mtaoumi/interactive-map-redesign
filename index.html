@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ifrane Atlas — A redesigned map of a small mountain town</title>
+  <meta name="description" content="An interactive, accessible map of Ifrane, Morocco. A portfolio redesign exploring HCI principles for architectural computation." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts: DM Sans + DM Serif Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#map" class="skip-link">Skip to map</a>
+
+  <!-- TOP NAVIGATION -->
+  <header class="topbar" role="banner">
+    <div class="brand" aria-label="Ifrane Atlas, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <path d="M12 2C7 2 3 6 3 11c0 6.5 9 11 9 11s9-4.5 9-11c0-5-4-9-9-9Z" fill="currentColor"/>
+          <circle cx="12" cy="10.5" r="2.6" fill="#F8F6F1"/>
+        </svg>
+      </span>
+      <span class="brand-name">Ifrane <em>Atlas</em></span>
+    </div>
+
+    <nav class="topbar-nav" aria-label="View modes">
+      <div class="view-toggle" role="tablist" aria-label="Switch view">
+        <button id="view-map" class="view-btn is-active" role="tab" aria-selected="true" aria-controls="map">Map</button>
+        <button id="view-list" class="view-btn" role="tab" aria-selected="false" aria-controls="locations-panel">List</button>
+      </div>
+      <button id="open-rationale" class="ghost-btn" aria-haspopup="dialog">
+        <span aria-hidden="true">↗</span> Before / After
+      </button>
+    </nav>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <main class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" id="sidebar" aria-label="Locations panel">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">A small atlas of <em>Ifrane</em></h1>
+        <p class="sidebar-sub">Eight places, hand-picked. Filter by what you're looking for.</p>
+      </div>
+
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <input id="search" type="search" placeholder="Search places…"
+               aria-label="Search locations" autocomplete="off" />
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter by category">
+        <button class="chip is-active" data-cat="all">All</button>
+        <button class="chip" data-cat="education">Education</button>
+        <button class="chip" data-cat="food">Food</button>
+        <button class="chip" data-cat="nature">Nature</button>
+        <button class="chip" data-cat="culture">Culture</button>
+      </div>
+
+      <div class="result-meta">
+        <span id="result-count">—</span> places
+      </div>
+
+      <ul id="locations-panel" class="locations" role="list" tabindex="0" aria-label="List of locations">
+        <!-- populated by JS -->
+      </ul>
+
+      <footer class="sidebar-foot">
+        Tiles © OpenStreetMap contributors
+      </footer>
+    </aside>
+
+    <!-- MOBILE DRAWER HANDLE -->
+    <button id="drawer-handle" class="drawer-handle" aria-controls="sidebar" aria-expanded="false">
+      <span class="drawer-grip" aria-hidden="true"></span>
+      <span class="drawer-label">Browse places</span>
+    </button>
+
+    <!-- MAP -->
+    <section class="map-wrap">
+      <div id="map" role="region" aria-label="Interactive map of Ifrane"></div>
+      <div class="map-credit" aria-hidden="true">33.5333° N · 5.1167° W</div>
+    </section>
+  </main>
+
+  <!-- BEFORE/AFTER MODAL -->
+  <div id="rationale" class="modal" role="dialog" aria-labelledby="rationale-title" aria-modal="true" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <header class="modal-head">
+        <p class="eyebrow">Case study</p>
+        <h2 id="rationale-title">Before <span class="slash">/</span> After</h2>
+        <p class="modal-lede">A walk through the reasoning behind every redesign decision.</p>
+      </header>
+
+      <div class="ba-grid">
+        <article class="ba-col ba-before">
+          <span class="ba-tag">Before</span>
+          <div class="ba-screen">
+            <div class="ba-mock-before" aria-hidden="true">
+              <div class="m-row m-row-1"></div>
+              <div class="m-pin m-pin-a"></div>
+              <div class="m-pin m-pin-b"></div>
+              <div class="m-pin m-pin-c"></div>
+              <div class="m-pin m-pin-d"></div>
+              <div class="m-pin m-pin-e"></div>
+              <div class="m-pin m-pin-f"></div>
+              <div class="m-cluster"></div>
+              <div class="m-bottombar"></div>
+            </div>
+          </div>
+          <ul class="ba-points">
+            <li>Default red pins create visual noise; nothing is hierarchically distinct.</li>
+            <li>No filtering — users must scan every marker to find a category.</li>
+            <li>Search hidden in a hamburger; controls scattered across the screen.</li>
+            <li>Popups are unstyled and crop content awkwardly on mobile.</li>
+          </ul>
+        </article>
+
+        <article class="ba-col ba-after">
+          <span class="ba-tag">After</span>
+          <div class="ba-screen">
+            <div class="ba-mock-after" aria-hidden="true">
+              <div class="ma-side"></div>
+              <div class="ma-top"></div>
+              <div class="ma-pin ma-pin-a"></div>
+              <div class="ma-pin ma-pin-b"></div>
+              <div class="ma-pin ma-pin-c"></div>
+              <div class="ma-pin ma-pin-d"></div>
+              <div class="ma-card"></div>
+            </div>
+          </div>
+          <ul class="ba-points">
+            <li>Category-coded markers act as a visual legend embedded in the map itself.</li>
+            <li>Persistent sidebar pairs map and list — two views, one mental model.</li>
+            <li>Search and filter chips live above the fold, always reachable.</li>
+            <li>Popups become editorial cards with title, category, and a photo slot.</li>
+          </ul>
+        </article>
+      </div>
+
+      <section class="rationale-blocks">
+        <div class="rb">
+          <h3>Visual hierarchy</h3>
+          <p>Every element earns its weight on screen. Display type carries the title, body type carries the substance, and only one accent green is allowed to compete for attention at a time.</p>
+        </div>
+        <div class="rb">
+          <h3>Information architecture</h3>
+          <p>Eight places, four categories. Filtering reduces working memory load — users don't need to remember which pins are cafés; the system carries that for them.</p>
+        </div>
+        <div class="rb">
+          <h3>Spatial design</h3>
+          <p>The layout reads like a plan: a defined edge (sidebar), a public realm (map), and a transition zone (header). Spatial logic from architecture, applied to a screen.</p>
+        </div>
+        <div class="rb">
+          <h3>Accessibility</h3>
+          <p>Skip links, ARIA roles on tabs and lists, keyboard-reachable filters, AA-contrast type, and a focus-visible ring on every interactive element.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>

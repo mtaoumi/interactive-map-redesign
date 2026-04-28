@@ -1,0 +1,84 @@
+{
+  "locations": [
+    {
+      "id": "aui",
+      "title": "Al Akhawayn University",
+      "category": "education",
+      "lat": 33.5366,
+      "lng": -5.1086,
+      "description": "An English-language liberal arts university founded in 1995, set on a 75-hectare campus modeled on American university traditions. The architecture blends Moroccan and alpine influences.",
+      "meta": "Founded 1995 · Liberal arts",
+      "photoLabel": "AUI Campus"
+    },
+    {
+      "id": "mohammed-vi-library",
+      "title": "Mohammed VI Library",
+      "category": "education",
+      "lat": 33.5378,
+      "lng": -5.1078,
+      "description": "The flagship academic library of Al Akhawayn, housing more than 100,000 volumes across the humanities, sciences, and Moroccan studies. A landmark of campus study life.",
+      "meta": "Open Mon–Sun · 100k+ volumes",
+      "photoLabel": "Library Reading Room"
+    },
+    {
+      "id": "lion-statue",
+      "title": "Stone Lion of Ifrane",
+      "category": "culture",
+      "lat": 33.5278,
+      "lng": -5.1100,
+      "description": "An iconic stone-carved Atlas lion sculpted during the French Protectorate. The most photographed civic monument in town and a meeting point for visitors.",
+      "meta": "Carved circa 1930s · Civic landmark",
+      "photoLabel": "The Stone Lion"
+    },
+    {
+      "id": "parc-de-la-prairie",
+      "title": "Parc de la Prairie",
+      "category": "nature",
+      "lat": 33.5306,
+      "lng": -5.1144,
+      "description": "A landscaped park threaded by the Tizguit stream, with stone bridges, willow trees, and benches. The civic heart of Ifrane's outdoor life year-round.",
+      "meta": "Open daily · Free entry",
+      "photoLabel": "Tizguit Stream"
+    },
+    {
+      "id": "michliffen-cedars",
+      "title": "Cèdre Gouraud Forest",
+      "category": "nature",
+      "lat": 33.4214,
+      "lng": -5.1500,
+      "description": "An ancient Atlas cedar forest just south of town, home to a famed millennial cedar and resident Barbary macaques. A short drive from the centre.",
+      "meta": "10 km south · Hiking trails",
+      "photoLabel": "Atlas Cedars"
+    },
+    {
+      "id": "cafe-la-paix",
+      "title": "Café La Paix",
+      "category": "food",
+      "lat": 33.5294,
+      "lng": -5.1108,
+      "description": "A long-running town-centre café known for mint tea, msemen, and a warm fireplace in winter. A favored stop for students and locals alike.",
+      "meta": "Open 7am–11pm · Café & light meals",
+      "photoLabel": "Café Interior"
+    },
+    {
+      "id": "la-rose",
+      "title": "Restaurant La Rose",
+      "category": "food",
+      "lat": 33.5302,
+      "lng": -5.1119,
+      "description": "A traditional Moroccan restaurant serving slow-cooked tagines, harira, and seasonal cherry desserts. Known for its alpine-style timber interior.",
+      "meta": "Lunch & dinner · Moroccan",
+      "photoLabel": "Tagine Service"
+    },
+    {
+      "id": "ifrane-cathedral",
+      "title": "Église Notre-Dame des Cèdres",
+      "category": "culture",
+      "lat": 33.5283,
+      "lng": -5.1131,
+      "description": "A small stone church built in 1932 during the French Protectorate, with a steep pitched roof reflecting Ifrane's distinctive alpine architecture.",
+      "meta": "Built 1932 · Historic site",
+      "photoLabel": "Stone Façade"
+    }
+  ]
+}
