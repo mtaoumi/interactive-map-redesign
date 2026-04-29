@@ -6,6 +6,14 @@ A single-page web app, deployable to GitHub Pages without a build step. Eight ha
 
 ---
 
+# Ifrane Atlas — Interactive Map Redesign
+
+🔗 **Live Demo:** [Open Website](https://mtaoumi.github.io/interactive-map-redesign/)
+
+Interactive map redesign of Ifrane, Morocco, focused on usability, accessibility, and spatial interface design.
+
+---
+
 ## Screenshots
 
 | Preview | Description |
