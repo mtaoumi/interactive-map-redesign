@@ -8,12 +8,11 @@ A single-page web app, deployable to GitHub Pages without a build step. Eight ha
 
 ## Screenshots
 
-
-| | |
-|---|---|
-| `screenshots/desktop-map.png` | Desktop map view with sidebar |
-| `screenshots/before-after.png` | Before/after comparison modal |
-| `screenshots/list-view.png` | List view mode |
+| Preview | Description |
+| --- | --- |
+| ![Desktop View](screenshots/desktop-map.png) | Desktop map view with sidebar |
+| ![Before After](screenshots/before-after.png) | Before/after comparison modal |
+| ![List View](screenshots/list-view.png) | List view mode |
 
 ---
 
