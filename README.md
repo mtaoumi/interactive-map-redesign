@@ -1,20 +1,17 @@
 # Ifrane Atlas
 
-> A redesigned interactive map of Ifrane, Morocco — a portfolio case study in human-computer interaction for architectural computation.
+> A redesigned interactive map of Ifrane, Morocco
 
-A vanilla single-page web app, deployable to GitHub Pages without a build step. Eight hand-picked points of interest, four categories, custom SVG markers, accessible keyboard navigation, and a before/after rationale built into the interface.
+A single-page web app, deployable to GitHub Pages without a build step. Eight hand-picked points of interest, four categories, custom SVG markers, accessible keyboard navigation, and a before/after rationale built into the interface.
 
 ---
 
 ## Screenshots
 
-> Replace these placeholders with real captures once deployed.
 
 | | |
 |---|---|
 | `screenshots/desktop-map.png` | Desktop map view with sidebar |
-| `screenshots/desktop-popup.png` | Custom popup card |
-| `screenshots/mobile-drawer.png` | Mobile drawer interaction |
 | `screenshots/before-after.png` | Before/after comparison modal |
 | `screenshots/list-view.png` | List view mode |
 
@@ -44,15 +41,6 @@ python3 -m http.server 8000
 
 ---
 
-## Deploy to GitHub Pages
-
-1. Push the repo to GitHub.
-2. Settings → Pages → Source: **Deploy from a branch** → branch `main`, folder `/ (root)`.
-3. Wait ~30s. The site will be live at `https://<username>.github.io/<repo>/`.
-
-No further configuration needed — every path is relative.
-
----
 
 ## Project structure
 
